@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { getGifs } from "../../actions/getGifs.js"
+import { getGifs } from '../../actions/getGifs'
+import { createFavorite } from '../../actions/createFavorite'
 import './gifSearch.css';
 
 function GifSearch() {
@@ -20,7 +21,13 @@ function GifSearch() {
   }
 
   const addToFavorites = () => {
-    // todo
+    const args = {
+      search_term: searchTerm,
+      url: giphyURLs[imageIndex],
+      format: 'gif',
+      source: 'giphy'
+    }
+    createFavorite(args)
   }
 
   const next = () => {
