@@ -1,15 +1,15 @@
 class Api::FavoritesController < ApplicationController
   rescue_from ActionController::ParameterMissing do |exception|
     logger.error exception
-    head 422
+    render json: 'invalid parameters', status: 422
   end
 
   def create
     favorite = Favorite.new(permitted_params)
     if favorite.save
-      head 201
+      render json: favorite, status: 201
     else
-      head 422
+      render json: 'invalid inputs', status: 422
     end
   end
 

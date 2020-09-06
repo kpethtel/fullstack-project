@@ -3,9 +3,18 @@ require 'rails_helper'
 
 RSpec.describe Api::FavoritesController, type: :controller do
   describe 'POST create' do
-    it 'returns 201 with valid params' do
-      post :create, params: {favorite: { url: "pow" }}
-      expect(response.status).to eq 201
+    context 'with valid params' do
+      it 'returns 201' do
+        post :create, params: {favorite: { url: "pow" }}
+        puts response.body
+        expect(response.status).to eq 201
+      end
+
+      it 'creates a favorite' do
+        expect do
+          post :create, params: {favorite: { url: "pow" }}
+        end.to change{ Favorite.count}.by(1)
+      end
     end
 
     it 'returns 422 with invalid params' do
