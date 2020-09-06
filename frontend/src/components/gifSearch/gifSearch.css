@@ -1,0 +1,24 @@
+.gifSearch {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.gifSearch form {
+  padding-bottom: 20px
+}
+
+.gifSearch button {
+  /* background-color: #ABCDEF; */
+  /* border-radius: 5px; */
+  margin: 0px 10px;
+}
+
+.gifSearch .controls {
+  /* align-items: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 20px;
+}
